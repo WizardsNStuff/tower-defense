@@ -10,14 +10,15 @@ size = Vector2(29, 32)
 radius = 89.0056
 
 [node name="WizardTower" type="StaticBody2D"]
+scale = Vector2(1, 0.993887)
 script = ExtResource("1_pqmob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_uoo31")
 
-[node name="Marker2D-Area" type="Marker2D" parent="."]
-position = Vector2(18, 1)
+[node name="PotionExitLocation" type="Marker2D" parent="."]
+position = Vector2(-1, -17)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d5ah3")
@@ -30,7 +31,5 @@ frame = 25
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower-Radius"]
 shape = SubResource("CircleShape2D_p5cco")
 
-[node name="Node" type="Node" parent="."]
-
-[connection signal="body_entered" from="Tower-Radius" to="." method="_on_area_2d_tower_body_entered"]
-[connection signal="body_exited" from="Tower-Radius" to="." method="_on_area_2d_tower_body_exited"]
+[connection signal="body_entered" from="Tower-Radius" to="." method="_on_tower_radius_body_entered"]
+[connection signal="body_exited" from="Tower-Radius" to="." method="_on_tower_radius_body_exited"]
