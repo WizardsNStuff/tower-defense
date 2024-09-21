@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://c122lq0v8glpu"]
+
+[ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_cmli7"]
+[ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus-and-interfaces/main_menu/title.png" id="2_22tds"]
+[ext_resource type="Script" path="res://menus-and-interfaces/level_select/lvl_1_button.gd" id="3_2i6l8"]
+[ext_resource type="Script" path="res://menus-and-interfaces/main_menu/quitBtn.gd" id="4_ih54w"]
+[ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="5_4pocv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_luch5"]
+font = ExtResource("1_cmli7")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_2uf3r"]
+font = ExtResource("1_cmli7")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_tre16"]
+font = ExtResource("1_cmli7")
+font_size = 72
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -10.0
+offset_right = 84.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Select Level"
+label_settings = SubResource("LabelSettings_luch5")
+
+[node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_22tds")
+stretch_mode = 2
+
+[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Level 1" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_2uf3r")
+
+[node name="lvl1Button" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions/Level 1"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 12.0
+offset_right = 108.0
+offset_bottom = 77.0
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("3_2i6l8")
+
+[node name="Quit" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+text = "Quit
+"
+label_settings = SubResource("LabelSettings_tre16")
+
+[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions/Quit"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 14.0
+offset_right = 98.0
+offset_bottom = 72.0
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("4_ih54w")
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Wizard Man" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
+position = Vector2(477, 232)
+scale = Vector2(11.1389, 13.0313)
+texture = ExtResource("5_4pocv")
+region_enabled = true
+region_rect = Rect2(64.3704, 34.0741, 31.4074, 31.4074)
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/Level 1/lvl1Button" to="HBoxContainer/VBoxContainer/MenuOptions/Level 1/lvl1Button" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/Quit/QuitButton" to="HBoxContainer/VBoxContainer/MenuOptions/Quit/QuitButton" method="_on_pressed"]
