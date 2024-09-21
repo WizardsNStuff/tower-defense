@@ -17,10 +17,6 @@ var marker_position
 var shootingCooldown = 0.3 # 1 seconds between each shot
 var lastShotTime = 0.0
 
-func _ready() -> void:
-	# get marker position
-	marker_position = marker.position
-
 func _on_tower_radius_body_entered(body: Node2D) -> void:
 	# if the body name of the object that entered is an enemy
 	if enemyName in body.name:
@@ -73,10 +69,9 @@ func shoot():
 		potion_instance.global_position = marker.global_position
 		
 		# calculate direction to current enemy
-		# marker -> enemy = enemy - marker
-		var directionToEnemy = current.global_position - marker.position
+		var directionToEnemy = (current.global_position - marker.global_position).normalized()
 		# set potion direction
-		potion_instance.potion_direction = directionToEnemy.normalized()
+		potion_instance.potion_direction = directionToEnemy
 		
 		# spawn potion
 		get_tree().current_scene.add_child(potion_instance)
