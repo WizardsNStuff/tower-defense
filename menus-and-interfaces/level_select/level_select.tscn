@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://c122lq0v8glpu"]
 
 [ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_cmli7"]
-[ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus/main_menu/title.png" id="2_22tds"]
-[ext_resource type="Script" path="res://menus/level_select/lvl_1_button.gd" id="3_2i6l8"]
-[ext_resource type="Script" path="res://menus/main_menu/quitBtn.gd" id="4_ih54w"]
+[ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus-and-interfaces/main_menu/title.png" id="2_22tds"]
+[ext_resource type="Script" path="res://menus-and-interfaces/level_select/lvl_1_button.gd" id="3_2i6l8"]
+[ext_resource type="Script" path="res://menus-and-interfaces/main_menu/quitBtn.gd" id="4_ih54w"]
 [ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="5_4pocv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_luch5"]

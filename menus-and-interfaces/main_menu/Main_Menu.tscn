@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://cdsry1r7ltxca"]
 
-[ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus/main_menu/title.png" id="1_0ti12"]
+[ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus-and-interfaces/main_menu/title.png" id="1_0ti12"]
 [ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_54o10"]
-[ext_resource type="Script" path="res://menus/main_menu/playBtn.gd" id="3_qdmks"]
+[ext_resource type="Script" path="res://menus-and-interfaces/main_menu/playBtn.gd" id="3_qdmks"]
 [ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="9_oom6t"]
-[ext_resource type="Script" path="res://menus/main_menu/quitBtn.gd" id="10_cf0q6"]
+[ext_resource type="Script" path="res://menus-and-interfaces/main_menu/quitBtn.gd" id="10_cf0q6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_luch5"]
 font = ExtResource("1_54o10")
