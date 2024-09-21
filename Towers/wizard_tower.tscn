@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b04xi8wnssdys"]
+
+[ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="1_d5ah3"]
+[ext_resource type="Script" path="res://Towers/wizard_tower.gd" id="1_pqmob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoo31"]
+size = Vector2(29, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5cco"]
+radius = 136.86
+
+[node name="WizardTower" type="StaticBody2D"]
+scale = Vector2(1, 0.993887)
+script = ExtResource("1_pqmob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_uoo31")
+
+[node name="PotionExitLocation" type="Marker2D" parent="."]
+position = Vector2(-1, 1.90735e-06)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d5ah3")
+hframes = 6
+vframes = 7
+frame = 25
+
+[node name="Tower-Radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower-Radius"]
+shape = SubResource("CircleShape2D_p5cco")
+
+[connection signal="body_entered" from="Tower-Radius" to="." method="_on_tower_radius_body_entered"]
+[connection signal="body_exited" from="Tower-Radius" to="." method="_on_tower_radius_body_exited"]
