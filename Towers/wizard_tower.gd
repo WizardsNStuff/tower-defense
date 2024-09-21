@@ -1,9 +1,5 @@
 extends StaticBody2D
 
-"""
-TODO: change enemy name to be the same
-name as the CharacterBody2D Node of enemy scene
-""" 
 var enemyName = "Badguy"
 # array of bodies within the area of tower
 var currentTargets = []
@@ -12,22 +8,29 @@ var current = null
 
 # load potion sceen into memory before runtime to reduce lag
 var Potion = preload("res://Towers/potion.tscn")
+
+# get the marker for shooting potions
+@onready var marker : Marker2D = $PotionExitLocation
+var marker_position
+
 # var potionDamage = 5
 var shootingCooldown = 0.3 # 1 seconds between each shot
 var lastShotTime = 0.0
+
+func _ready() -> void:
+	# get marker position
+	marker_position = marker.position
 
 func _on_tower_radius_body_entered(body: Node2D) -> void:
 	# if the body name of the object that entered is an enemy
 	if enemyName in body.name:
 		# update targets list
 		update_target_list()
-	print_debug("enemy ", body, " in radius")
 
 func _on_tower_radius_body_exited(body: Node2D) -> void:
 	# if the body that left the radius is current
 	if current and body.get_parent() == current:
 		current = null
-	print_debug("enemy ", body, " left radius")
 
 func update_target_list():
 	# array for the enemy targets
@@ -61,27 +64,22 @@ func update_target_list():
 				current = enemyTarget.get_parent()
 
 func shoot():
-	# if there is a current enemy
-	if current:
+	# if enemy is targeted
+	if current:		
 		# create potion
-		var p = Potion.instantiate()
-		print_debug("potion position old: ", p.position)
-		# get marker node
-		var marker = get_node("PotionExitLocation")
-		print_debug("position of marker: ", marker.position)
+		var potion_instance = Potion.instantiate()
 		
-		# set potions position to markers position
-		p.position = marker.position
-		
-		print_debug("potion position new: ", p.position)
+		# move potion to marker
+		potion_instance.global_position = marker.global_position
 		
 		# calculate direction to current enemy
 		# marker -> enemy = enemy - marker
-		var direction = (current.position - marker.position).normalized()
-		# set potions direction
-		p.potion_direction = direction
-		# add potion to scene
-		get_tree().current_scene.add_child(p)
+		var directionToEnemy = current.global_position - marker.position
+		# set potion direction
+		potion_instance.potion_direction = directionToEnemy.normalized()
+		
+		# spawn potion
+		get_tree().current_scene.add_child(potion_instance)
 		
 		# reset time of last shot to 0
 		lastShotTime = 0.0

@@ -7,7 +7,7 @@
 size = Vector2(29, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5cco"]
-radius = 89.0056
+radius = 136.86
 
 [node name="WizardTower" type="StaticBody2D"]
 scale = Vector2(1, 0.993887)
@@ -18,7 +18,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_uoo31")
 
 [node name="PotionExitLocation" type="Marker2D" parent="."]
-position = Vector2(-1, -17)
+position = Vector2(-1, 1.90735e-06)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d5ah3")
