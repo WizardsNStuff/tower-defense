@@ -4,20 +4,16 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0u0b"]
 atlas = ExtResource("1_0cwcp")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(64, 8, 24, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
-radius = 7.0
-height = 18.0
+radius = 11.0
+height = 22.0
 
-[node name="Enemy" type="Node2D"]
+[node name="Goblin" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -11)
 texture = SubResource("AtlasTexture_l0u0b")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CharacterBody2D"]
-position = Vector2(0, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lpf7k")
