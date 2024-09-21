@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-
-
 func _on_pressed() -> void:
-	print("quit")
+	print("lvl1Button")
+	get_tree().change_scene_to_file("res://level_1.tscn")
