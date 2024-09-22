@@ -5,6 +5,7 @@ extends MarginContainer
 func _ready() -> void:
 	BackgroundMusic.music = "res://Music/MainMenu.wav"
 	get_node("HBoxContainer/CenterContainer/GameOver").visible = GameOver.showGameOver
+	get_node("HBoxContainer/CenterContainer/Victory").visible = GameOver.showVictory
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

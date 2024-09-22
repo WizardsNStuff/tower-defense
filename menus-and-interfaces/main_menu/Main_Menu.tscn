@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cdsry1r7ltxca"]
+[gd_scene load_steps=18 format=4 uid="uid://cdsry1r7ltxca"]
 
 [ext_resource type="Texture2D" uid="uid://dd64g5iycevoc" path="res://menus-and-interfaces/main_menu/title.png" id="1_0ti12"]
 [ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_54o10"]
@@ -27,6 +27,12 @@ font_size = 72
 [sub_resource type="LabelSettings" id="LabelSettings_a2kju"]
 font = ExtResource("1_54o10")
 font_size = 98
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dy31q"]
+font = ExtResource("1_54o10")
+font_size = 128
+font_color = Color(0.776471, 0.627451, 0.141176, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b0bh8"]
 texture = ExtResource("6_tsj6q")
@@ -349,6 +355,12 @@ visible = false
 layout_mode = 2
 text = "YOU LOST"
 label_settings = SubResource("LabelSettings_a2kju")
+
+[node name="Victory" type="Label" parent="HBoxContainer/CenterContainer"]
+visible = false
+layout_mode = 2
+text = "Victory"
+label_settings = SubResource("LabelSettings_dy31q")
 
 [node name="Wizard Man" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
 position = Vector2(262, 239)
