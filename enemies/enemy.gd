@@ -6,10 +6,15 @@ var max_health : int
 var damage : int
 var gold : int
 var current_health : int
+var damageNumberScene = preload("res://enemies/damage_number.tscn")
 
 func take_damage(damageAmount : int) -> void:
 	current_health -= damageAmount
-	
+	# create a visual damage number
+	var damageTaken : Label = damageNumberScene.instantiate()
+	damageTaken.text = str(damageAmount)
+	self.get_parent().get_parent().add_child(damageTaken)
+	print(damageTaken.text)
 	if current_health <= 0:
 		queue_free()
 
