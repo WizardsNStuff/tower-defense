@@ -9,6 +9,7 @@ var current_health : int
 
 func take_damage(damageAmount : int) -> void:
 	current_health -= damageAmount
+	
 	if current_health <= 0:
 		queue_free()
 
