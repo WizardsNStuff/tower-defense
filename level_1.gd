@@ -16,10 +16,10 @@ func _ready() -> void:
 	BackgroundMusic.music = "res://Music/LevelMusic.wav"
 	
 func initiate_build_mode(tower_type : String):
-	print(tower_type)
+
 	build_type = tower_type
 	var tile_pos = levelmap_script.get_selected_cell()
-	print(tile_pos)
+
 	
 	var tower_price = tower_prices[tower_type]
 	

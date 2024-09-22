@@ -27,5 +27,5 @@ func _ready() -> void:
 		btn.pressed.connect(_on_button_pressed.bind(btn))
 
 func _on_button_pressed(button):
-	print("tower shop script: btn pressed!")
+	#print("tower shop script: btn pressed!")
 	level_script.initiate_build_mode(button.name)  # Call the function in the other script

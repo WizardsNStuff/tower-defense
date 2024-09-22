@@ -9,25 +9,20 @@ func get_selected_cell() -> Vector2:
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 
-		# mouse position relative to the cells (size of the tilemap)
-		var local_mouse_pos = get_local_mouse_position()
+		var global_mouse_pos = get_global_mouse_position()
 
-		# get a vector for the tile that was clicked
-		var clicked_tile = self.local_to_map(local_mouse_pos)
-		
-		selected_tile = clicked_tile
-
-		highlight_tile(clicked_tile)
+		#highlight_tile(clicked_tile)
 
 		if shop_instance:
 			# if shop is already open close it
 			shop_instance.queue_free()
 			shop_instance = null
+			
 		else:
 			shop_instance = preload("res://menus-and-interfaces/tower_shop/tower_shop.tscn").instantiate()
 
+			selected_tile = global_mouse_pos
 			
-
 			# add shop_hud as child of root
 			get_tree().current_scene.add_child(shop_instance)
 
