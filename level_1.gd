@@ -16,6 +16,8 @@ var tower_prices : Dictionary = {
 func _ready() -> void:
 	BackgroundMusic.music = "res://Music/LevelMusic.wav"
 	gold_label.text = "GOLD: " + str(player_gold)
+	GameOver.showGameOver = false
+	GameOver.showVictory = false
 	
 func initiate_build_mode(tower_type : String):
 
