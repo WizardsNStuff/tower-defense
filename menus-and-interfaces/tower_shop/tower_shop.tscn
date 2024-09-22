@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5u4kvjd2h2g"]
+[gd_scene load_steps=21 format=3 uid="uid://c5u4kvjd2h2g"]
 
+[ext_resource type="Script" path="res://menus-and-interfaces/tower_shop/tower_shop.gd" id="1_ayuyi"]
 [ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_bgccu"]
 [ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="1_u1vya"]
 [ext_resource type="Texture2D" uid="uid://dtiaahkdwaafm" path="res://Assets/coin.png" id="2_kn60u"]
@@ -115,6 +116,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ayuyi")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -141,21 +143,6 @@ text = "                                    Warrior
 "
 label_settings = SubResource("LabelSettings_bd3wd")
 
-[node name="WarriorBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 140.0
-offset_bottom = 153.0
-mouse_default_cursor_shape = 2
-
-[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -3.0
-offset_right = 340.0
-offset_bottom = 39.0
-
 [node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
 layout_mode = 0
 offset_left = -3.0
@@ -163,6 +150,22 @@ offset_top = 38.0
 offset_right = 341.0
 offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="WarriorBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 340.0
+offset_bottom = 39.0
 
 [node name="Warrior" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
 position = Vector2(91, 96)
@@ -193,21 +196,6 @@ text = "                                    Archer
 "
 label_settings = SubResource("LabelSettings_bd3wd")
 
-[node name="ArcherBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 140.0
-offset_bottom = 153.0
-mouse_default_cursor_shape = 2
-
-[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 7.0
-offset_right = 340.0
-offset_bottom = 39.0
-
 [node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
 layout_mode = 0
 offset_left = -3.0
@@ -215,6 +203,21 @@ offset_top = 38.0
 offset_right = 341.0
 offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="ArcherBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 7.0
+offset_right = 340.0
+offset_bottom = 39.0
 
 [node name="Archer" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
 position = Vector2(91, 96)
@@ -245,6 +248,14 @@ text = "                                    Knight
 "
 label_settings = SubResource("LabelSettings_bd3wd")
 
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
 [node name="KnightBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
 layout_mode = 0
 offset_left = 40.0
@@ -259,14 +270,6 @@ offset_left = -4.0
 offset_top = 7.0
 offset_right = 340.0
 offset_bottom = 39.0
-
-[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 38.0
-offset_right = 341.0
-offset_bottom = 154.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
 [node name="Knight" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
 position = Vector2(91, 96)
@@ -297,6 +300,14 @@ text = "                                    Wizard
 "
 label_settings = SubResource("LabelSettings_bd3wd")
 
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 166.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
 [node name="WizardBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 layout_mode = 0
 offset_left = 41.0
@@ -311,14 +322,6 @@ offset_left = -5.0
 offset_top = 7.0
 offset_right = 340.0
 offset_bottom = 39.0
-
-[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 38.0
-offset_right = 341.0
-offset_bottom = 166.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
 [node name="Wizard" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 position = Vector2(91, 96)
