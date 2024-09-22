@@ -122,6 +122,7 @@ offset_right = 338.0
 offset_bottom = 606.0
 
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer"]
+z_index = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

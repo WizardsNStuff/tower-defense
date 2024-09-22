@@ -31,6 +31,6 @@ func spawn_enemy() -> void:
 func _on_spawn_timer_timeout() -> void:
 	pass # spawn timer finished, spawn again
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if spawn_timer.is_stopped():
 		spawn_enemy()
