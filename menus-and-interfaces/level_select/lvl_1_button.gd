@@ -7,12 +7,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_pressed() -> void:
-	print("lvl1Button")
 	get_tree().change_scene_to_file("res://level_1.tscn")
 
 

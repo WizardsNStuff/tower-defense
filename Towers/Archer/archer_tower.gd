@@ -58,6 +58,6 @@ func shoot():
 func _on_timer_timeout() -> void:
 	pass # cooldown timer finished, you can now shoot again
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if towerHasTargetedEnemy and cooldownTimer.is_stopped():
 		shoot()

@@ -8,7 +8,7 @@ func displayNumber(value: int, position: Vector2):
 	number.label_settings = LabelSettings.new()
 	
 	# damageNumber is black
-	var color = "#FFF"
+	var color = "#ff0000"
 	# transparent is damage is 0
 	if value == 0:
 		color = "#FFF8"

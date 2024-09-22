@@ -22,6 +22,7 @@ var waves = [
 ]
 
 var wave_number = 0
+var stop_mob_spawns = false 
 
 func spawn_enemy() -> void:
 	var wave_mob_size = waves[wave_number].size()
@@ -45,8 +46,9 @@ func spawn_enemy() -> void:
 		#path_follow_node.set_process(0)
 	#enemy_instance.position = path_follow_node.position
 	
-	spawn_timer.start()
-	if wave_timer.is_stopped():
+	if spawn_timer.is_stopped() and not stop_mob_spawns:
+		spawn_timer.start()
+	if wave_timer.is_stopped()	and not stop_mob_spawns:
 		wave_timer.start()
 	
 
@@ -54,19 +56,21 @@ func _on_spawn_timer_timeout() -> void:
 	pass # spawn timer finished, spawn again
 
 func _physics_process(_delta: float) -> void:
-	if spawn_timer.is_stopped():
+	if spawn_timer.is_stopped() and not stop_mob_spawns:
 		spawn_enemy()
 	if wave_timer.is_stopped():
 		# goto next wave
 		# win
-		print("wave number: ", wave_number + 1)
-		if wave_number >= enemy_scenes.size()-1:
-			#load win scene
-			# if no enemies on screen
-			print("WINNNN")
-			get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
-			GameOver.showVictory = true
-			pass
+		
+		if (wave_number >= enemy_scenes.size()-1):
+			if get_parent().get_node("Path2D").get_children().is_empty():
+
+				get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
+				GameOver.showVictory = true
+			else:
+				wave_timer.stop()
+				spawn_timer.stop()
+				stop_mob_spawns = true
 		else:
 			wave_number += 1
 			spawn_enemy()

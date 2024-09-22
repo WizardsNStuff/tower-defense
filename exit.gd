@@ -10,8 +10,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if totalHealth <= 0:
 			get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
 			GameOver.showGameOver = true
-			print('dead')
-		print(totalHealth)
 
 func _physics_process(_delta: float) -> void:
 	pass
