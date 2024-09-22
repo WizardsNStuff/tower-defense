@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://da4ddayi8j8ps"]
+[gd_scene load_steps=9 format=4 uid="uid://dsorrsrb5o7q8"]
 
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
