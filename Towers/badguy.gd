@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var move_speed = 100	# speed at which path is progressed
-var max_health = 100
+var max_health = 1000
 var current_health = max_health
 
 @onready var health_bar : ProgressBar = $HealthBar

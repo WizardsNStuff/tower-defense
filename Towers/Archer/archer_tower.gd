@@ -5,11 +5,11 @@ var bodiesInRadius = []	# array of bodies within the radius of tower
 var enemyArray = []	# array for the enemy bodies
 var targetedEnemy = null	# current target we are shooting at
 var towerHasTargetedEnemy = false	# if we have a current targeted enemy
-var Potion = preload("res://Towers/potion.tscn")
+@export var Weapon = preload("res://Towers/Wizard/potion.tscn")
 
 # towerRadius casted as Area2D to be able to use get_overlapping_bodies()
 @onready var towerRadiusNode = get_node("Tower-Radius") as Area2D
-@onready var marker : Marker2D = $PotionExitLocation	# marker for starting shooting position
+@onready var marker : Marker2D = $Marker	# marker for starting shooting position
 @onready var cooldownTimer : Timer = $CooldownTimer # Timer node for the shooting cooldown
 
 func _on_tower_radius_body_entered(body: Node2D) -> void:
@@ -39,16 +39,16 @@ func update_enemy_list():
 
 func shoot():
 	if towerHasTargetedEnemy:		
-		var potion_instance = Potion.instantiate()	# create potion instance
+		var weapon_instance = Weapon.instantiate()	# create weapon instance
 
-		potion_instance.global_position = marker.global_position	# move potion to marker
+		weapon_instance.global_position = marker.global_position	# move weapon to marker
 
 		# calculate direction to targeted enemy
 		var directionToEnemy = (targetedEnemy.global_position - marker.global_position).normalized()
 
-		potion_instance.potion_direction = directionToEnemy	# set potion direction
+		weapon_instance.weapon_direction = directionToEnemy	# set weapon direction
 
-		get_tree().current_scene.add_child(potion_instance)	# add potion to scene
+		get_tree().current_scene.add_child(weapon_instance)	# add weapon to scene
 
 		cooldownTimer.start()	# Start cooldown timer after shooting
 
