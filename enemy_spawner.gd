@@ -65,7 +65,7 @@ func _physics_process(_delta: float) -> void:
 			# if no enemies on screen
 			print("WINNNN")
 			get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
-			GameOver.showGameOver = true
+			GameOver.showVictory = true
 			pass
 		else:
 			wave_number += 1
