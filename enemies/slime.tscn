@@ -2,18 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_i8qsq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0d0m"]
 radius = 7.0
-height = 16.0
+height = 18.0
 
 [node name="Goblin" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i8qsq")
-offset = Vector2(2, -5)
+offset = Vector2(-0.5, -10)
 hframes = 12
 vframes = 13
-frame = 2
+frame = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_lpf7k")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p0d0m")
