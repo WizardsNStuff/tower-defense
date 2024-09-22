@@ -31,5 +31,10 @@ frame = 25
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower-Radius"]
 shape = SubResource("CircleShape2D_p5cco")
 
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="body_entered" from="Tower-Radius" to="." method="_on_tower_radius_body_entered"]
 [connection signal="body_exited" from="Tower-Radius" to="." method="_on_tower_radius_body_exited"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]

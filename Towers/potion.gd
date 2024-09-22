@@ -1,24 +1,17 @@
 extends Area2D
 
 var potion_speed = 300
-var potion_direction = Vector2()
-
+var potion_direction : Vector2
+var potion_damage = 25
 var enemyName = "Badguy"
 
-func _ready() -> void:
-	rotation = potion_direction.angle()
-
 func _physics_process(delta: float) -> void:
-	self.position.x += potion_direction.x * potion_speed * delta
-	self.position.y += potion_direction.y * potion_speed * delta
-	
-func _on_body_entered(body: Node2D) -> void:
-	# if potion hit enemy
-	if enemyName in body.name:
-		# remove enemy
-		body.queue_free()
-		# remove potion
-		queue_free()
+	self.position += potion_direction * potion_speed * delta	# move the potion
 
-#func _on_timer_timeout() -> void:
-	#queue_free()
+func _on_body_entered(body: Node2D) -> void:
+	if enemyName in body.name:		# if potion collision is with an enemy
+		body.take_damage(potion_damage)	# damage the enemy
+		queue_free()	# destroy potion
+
+func _on_timer_timeout() -> void:
+	queue_free()	# despawn potion after 'X' seconds
