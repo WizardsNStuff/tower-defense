@@ -1,5 +1,6 @@
 extends Button
 
+@onready var quitBtnBG = get_node("/root/MainMenu/QuitBtnBG")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +17,11 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	print("quit")
 	get_tree().quit()
+
+
+func _on_mouse_entered() -> void:
+	quitBtnBG.visible = true
+
+
+func _on_mouse_exited() -> void:
+	quitBtnBG.visible = false
