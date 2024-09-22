@@ -1,37 +1,39 @@
 extends Node2D
 
-var map_node
-
-var build_mode = false
-var build_valid = false
-var build_location
 var build_type
+var player_gold : int = 1000
+var tower_prices : Dictionary = {
+	"wizard" : 225, 
+	"knight" : 125, 
+	"archer" : 50, 
+	"warrior" : 25
+}
 
 @onready var levelmap_script : TileMapLayer = $Level_map
 @onready var towers_script : Node2D = $Towers
 
 func _ready() -> void:
 	BackgroundMusic.music = "res://Music/LevelMusic.wav"
-
-func _process(_delta: float) -> void:
-	pass
-	
-func _unhandled_input(event: InputEvent) -> void:
-	pass
 	
 func initiate_build_mode(tower_type : String):
 	print(tower_type)
 	build_type = tower_type
-	build_mode = true
 	var tile_pos = levelmap_script.get_selected_cell()
 	print(tile_pos)
-	towers_script.add_tower(tower_type, tile_pos)
 	
-func update_tower_preview():
-	pass
+	var tower_price = tower_prices[tower_type]
 	
-func cancel_build_mode():
-	pass
+	if can_buy_tower(tower_price):
+		remove_gold(tower_price)
+		towers_script.add_tower(tower_type, tile_pos)	
+
+func can_buy_tower(price : int) -> bool:
+	if player_gold - price < 0:
+		return false
+	return true
+
+func add_gold(amount : int) -> void:
+	player_gold += amount
 	
-func verify_and_build():
-	pass
+func remove_gold(amount : int) -> void:
+	player_gold -= amount
