@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjhqqyjnct3v"]
+[gd_scene load_steps=4 format=3 uid="uid://cjhqqyjnct3v"]
 
 [ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_i8qsq"]
+[ext_resource type="Script" path="res://enemies/slime.gd" id="1_nyujb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0d0m"]
 radius = 7.0
 height = 18.0
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_nyujb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i8qsq")

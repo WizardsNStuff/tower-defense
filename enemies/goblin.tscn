@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bueopn6oyle23"]
+[gd_scene load_steps=4 format=3 uid="uid://bueopn6oyle23"]
 
-[ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_0cwcp"]
+[ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_1t856"]
+[ext_resource type="Script" path="res://enemies/goblin.gd" id="1_d65l2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
 radius = 7.0
 height = 16.0
 
 [node name="Goblin" type="CharacterBody2D"]
+script = ExtResource("1_d65l2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0cwcp")
+texture = ExtResource("1_1t856")
 offset = Vector2(2, -5)
 hframes = 12
 vframes = 13

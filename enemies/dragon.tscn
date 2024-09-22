@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsv0wq5dspkbc"]
+[gd_scene load_steps=4 format=3 uid="uid://bsv0wq5dspkbc"]
 
 [ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_hj1j7"]
+[ext_resource type="Script" path="res://enemies/dragon.gd" id="1_i4g5y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
 radius = 16.9706
 height = 38.1838
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Dragon" type="CharacterBody2D"]
+script = ExtResource("1_i4g5y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hj1j7")

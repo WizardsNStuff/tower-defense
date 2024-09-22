@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnq31lu24j00k"]
+[gd_scene load_steps=4 format=3 uid="uid://dnq31lu24j00k"]
 
+[ext_resource type="Script" path="res://enemies/skeleton.gd" id="1_7y63j"]
 [ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_elkea"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
 radius = 11.0
 height = 28.0
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Skeleton" type="CharacterBody2D"]
+script = ExtResource("1_7y63j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_elkea")

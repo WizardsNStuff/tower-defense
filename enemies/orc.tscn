@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c764xb53b7vad"]
+[gd_scene load_steps=4 format=3 uid="uid://c764xb53b7vad"]
 
+[ext_resource type="Script" path="res://enemies/orc.gd" id="1_1tkva"]
 [ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_j0mgj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
 radius = 13.0
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Orc" type="CharacterBody2D"]
+script = ExtResource("1_1tkva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_j0mgj")
