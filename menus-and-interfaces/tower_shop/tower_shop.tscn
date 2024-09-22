@@ -1,11 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5u4kvjd2h2g"]
+[gd_scene load_steps=20 format=3 uid="uid://c5u4kvjd2h2g"]
 
+[ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_bgccu"]
 [ext_resource type="Texture2D" uid="uid://brgp8syyw3o2h" path="res://Assets/rogues.png" id="1_u1vya"]
 [ext_resource type="Texture2D" uid="uid://dtiaahkdwaafm" path="res://Assets/coin.png" id="2_kn60u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bd3wd"]
+font = ExtResource("1_bgccu")
 font_size = 36
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyo70"]
+bg_color = Color(0.714402, 0.686033, 0.560755, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5jh3i"]
 font_size = 20
@@ -103,10 +108,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uij6k"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -132,39 +133,210 @@ offset_right = 182.0
 offset_bottom = 124.0
 theme_override_constants/separation = 60
 
-[node name="Wizard Tower" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
+[node name="Warrior" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
-text = "           Wizard
+text = "                                    Warrior
 
 "
 label_settings = SubResource("LabelSettings_bd3wd")
 
-[node name="Wizard" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard Tower"]
+[node name="WarriorBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 340.0
+offset_bottom = 39.0
+
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="Warrior" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+position = Vector2(91, 96)
+scale = Vector2(3.33064, 3.33064)
+texture = ExtResource("1_u1vya")
+region_enabled = true
+region_rect = Rect2(0.592407, 6.61723, 29.037, 25.4815)
+
+[node name="WarriorCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 112.0
+offset_right = 283.0
+offset_bottom = 140.0
+text = "25 Gold"
+label_settings = SubResource("LabelSettings_5jh3i")
+
+[node name="Coin" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+position = Vector2(239, 85)
+scale = Vector2(5.20312, 5.20312)
+sprite_frames = SubResource("SpriteFrames_ic6lq")
+autoplay = "default"
+
+[node name="Archer" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "                                    Archer
+
+"
+label_settings = SubResource("LabelSettings_bd3wd")
+
+[node name="ArcherBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 7.0
+offset_right = 340.0
+offset_bottom = 39.0
+
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="Archer" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+position = Vector2(91, 96)
+scale = Vector2(3.33064, 3.33064)
+texture = ExtResource("1_u1vya")
+region_enabled = true
+region_rect = Rect2(65.7776, 0.88884, 30.0247, 30.8148)
+
+[node name="ArcherCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 112.0
+offset_right = 283.0
+offset_bottom = 140.0
+text = "50 Gold"
+label_settings = SubResource("LabelSettings_5jh3i")
+
+[node name="Coin" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+position = Vector2(239, 85)
+scale = Vector2(5.20312, 5.20312)
+sprite_frames = SubResource("SpriteFrames_ic6lq")
+autoplay = "default"
+
+[node name="Knight" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "                                    Knight
+
+"
+label_settings = SubResource("LabelSettings_bd3wd")
+
+[node name="KnightBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 7.0
+offset_right = 340.0
+offset_bottom = 39.0
+
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="Knight" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+position = Vector2(91, 96)
+scale = Vector2(3.33064, 3.33064)
+texture = ExtResource("1_u1vya")
+region_enabled = true
+region_rect = Rect2(2.17265, 32.2962, 23.7037, 30.6173)
+
+[node name="KnightCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 112.0
+offset_right = 283.0
+offset_bottom = 140.0
+text = "125 Gold"
+label_settings = SubResource("LabelSettings_5jh3i")
+
+[node name="Coin" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+position = Vector2(239, 85)
+scale = Vector2(5.20312, 5.20312)
+sprite_frames = SubResource("SpriteFrames_ic6lq")
+autoplay = "default"
+
+[node name="Wizard" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "                                    Wizard
+
+"
+label_settings = SubResource("LabelSettings_bd3wd")
+
+[node name="WizardBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 38.0
+offset_right = 141.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 7.0
+offset_right = 340.0
+offset_bottom = 39.0
+
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 166.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="Wizard" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 position = Vector2(91, 96)
 scale = Vector2(3.33064, 3.33064)
 texture = ExtResource("1_u1vya")
 region_enabled = true
 region_rect = Rect2(32.3109, 128.003, 31.3627, 32.3205)
 
-[node name="WizardCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard Tower"]
+[node name="WizardCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 layout_mode = 0
 offset_left = 198.0
 offset_top = 112.0
 offset_right = 283.0
 offset_bottom = 140.0
-text = "100 Gold"
+text = "225 Gold"
 label_settings = SubResource("LabelSettings_5jh3i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard Tower"]
+[node name="Coin" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 position = Vector2(239, 85)
 scale = Vector2(5.20312, 5.20312)
 sprite_frames = SubResource("SpriteFrames_ic6lq")
 autoplay = "default"
-frame_progress = 0.478728
-
-[node name="Knight" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "             Knight
-"
-label_settings = SubResource("LabelSettings_uij6k")
-vertical_alignment = 1
