@@ -24,6 +24,8 @@ var waves = [
 var wave_number = 0
 var stop_mob_spawns = false 
 
+@onready var wave_label : Label = $"../WaveTime"
+
 func spawn_enemy() -> void:
 	var wave_mob_size = waves[wave_number].size()
 	
@@ -56,6 +58,8 @@ func _on_spawn_timer_timeout() -> void:
 	pass # spawn timer finished, spawn again
 
 func _physics_process(_delta: float) -> void:
+	wave_label.text = "WAVE: " + str(wave_number + 1)
+	
 	if spawn_timer.is_stopped() and not stop_mob_spawns:
 		spawn_enemy()
 	if wave_timer.is_stopped():
