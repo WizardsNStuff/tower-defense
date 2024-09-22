@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://da4ddayi8j8ps"]
+[gd_scene load_steps=18 format=4 uid="uid://da4ddayi8j8ps"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_kquss"]
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="Script" path="res://grid_system.gd" id="2_lehrn"]
+[ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="2_w5en7"]
 [ext_resource type="Script" path="res://towers.gd" id="4_4eu5u"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="7_b5s6h"]
@@ -11,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://c764xb53b7vad" path="res://enemies/orc.tscn" id="10_cfvtt"]
 [ext_resource type="PackedScene" uid="uid://dnq31lu24j00k" path="res://enemies/skeleton.tscn" id="11_l3jb4"]
 [ext_resource type="PackedScene" uid="uid://cjhqqyjnct3v" path="res://enemies/slime.tscn" id="12_j6t1s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_up66c"]
+font = ExtResource("2_w5en7")
+font_size = 32
+font_color = Color(0.776471, 0.627451, 0.141176, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
 texture = ExtResource("1_udatx")
@@ -147,6 +153,7 @@ offset_top = -264.0
 offset_right = -358.0
 offset_bottom = -216.0
 text = "GOLD:"
+label_settings = SubResource("LabelSettings_up66c")
 
 [node name="Level_map" type="TileMapLayer" parent="."]
 z_index = -1
