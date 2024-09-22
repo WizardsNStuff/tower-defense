@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://da4ddayi8j8ps"]
+[gd_scene load_steps=7 format=4 uid="uid://da4ddayi8j8ps"]
 
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
-[ext_resource type="PackedScene" path="res://Towers/wizard_tower.tscn" id="2_df20e"]
-[ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
+[ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
 texture = ExtResource("1_udatx")
@@ -123,12 +122,9 @@ sources/0 = SubResource("TileSetAtlasSource_eftm6")
 
 [sub_resource type="Curve2D" id="Curve2D_e6ewd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -144, -312, 0, 0, 0, 0, -146, -143, 0, 0, 0, 0, 176, -144, 0, 0, 0, 0, 176, -80, 0, 0, 0, 0, -144, -80, 0, 0, 0, 0, -146, 17, 0, 0, 0, 0, -79, 17, 0, 0, 0, 0, -80, 80, 0, 0, 0, 0, 16, 80, 0, 0, 0, 0, 16, 16, 0, 0, 0, 0, 175, 15, 0, 0, 0, 0, 176, 303)
+"points": PackedVector2Array(0, 0, 0, 0, -144, -312, 0, 0, 0, 0, -146, -143, 0, 0, 0, 0, 176, -144, 0, 0, 0, 0, 176, -80, 0, 0, 0, 0, -144, -80, 0, 0, 0, 0, -146, 17, 0, 0, 0, 0, -79, 17, 0, 0, 0, 0, -80, 80, 0, 0, 0, 0, 16, 80, 0, 0, 0, 0, 16, 16, 0, 0, 0, 0, 175, 15, 0, 0, 0, 0, 176, 312)
 }
 point_count = 12
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8qw"]
-size = Vector2(32, 32)
 
 [node name="Level_1" type="Node2D"]
 z_index = -1
@@ -161,19 +157,3 @@ position = Vector2(5.24521e-06, -1.96695e-06)
 position = Vector2(-144, -112)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Exit" type="Area2D" parent="."]
-script = ExtResource("4_7wc6o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(176, 304)
-shape = SubResource("RectangleShape2D_5q8qw")
-
-[node name="HealthBar" type="ProgressBar" parent="Exit"]
-offset_left = -608.0
-offset_top = -321.0
-offset_right = -354.0
-offset_bottom = -269.0
-value = 100.0
-
-[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
