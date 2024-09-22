@@ -2,9 +2,11 @@ extends Control
 
 var buttons: Array = []
 var labels: Array = []
-@onready var level_script = $"."
+@onready var level_script : Node2D
 
 func _ready() -> void:
+	level_script = get_tree().current_scene
+	
 	var vbox_container = $ScrollContainer/ColorRect/VBoxContainer
 
 	"""
@@ -25,9 +27,5 @@ func _ready() -> void:
 		btn.pressed.connect(_on_button_pressed.bind(btn))
 
 func _on_button_pressed(button):
-	print("btn pressed!")
-	#level_script.initiate_build_mode("test string")  # Call the function in the other script
-
-	
-func _process(delta: float) -> void:
-	pass
+	print("tower shop script: btn pressed!")
+	level_script.initiate_build_mode(button.name)  # Call the function in the other script

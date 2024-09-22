@@ -151,7 +151,7 @@ offset_right = 341.0
 offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
-[node name="WarriorBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
+[node name="warrior" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Warrior"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 38.0
@@ -204,7 +204,7 @@ offset_right = 341.0
 offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
-[node name="ArcherBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+[node name="archer" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0
@@ -256,7 +256,7 @@ offset_right = 341.0
 offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
-[node name="KnightBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+[node name="knight" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0
@@ -308,7 +308,7 @@ offset_right = 341.0
 offset_bottom = 166.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
-[node name="WizardBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+[node name="wizard" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0

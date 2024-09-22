@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://da4ddayi8j8ps"]
+[gd_scene load_steps=17 format=4 uid="uid://da4ddayi8j8ps"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_kquss"]
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
 [ext_resource type="Script" path="res://grid_system.gd" id="2_lehrn"]
+[ext_resource type="Script" path="res://towers.gd" id="4_4eu5u"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="7_b5s6h"]
 [ext_resource type="PackedScene" uid="uid://bsv0wq5dspkbc" path="res://enemies/dragon.tscn" id="8_mpe5n"]
@@ -156,6 +157,7 @@ tile_set = SubResource("TileSet_w7e0w")
 curve = SubResource("Curve2D_e6ewd")
 
 [node name="Towers" type="Node2D" parent="."]
+script = ExtResource("4_4eu5u")
 
 [node name="WizardTower" parent="Towers" instance=ExtResource("2_df20e")]
 position = Vector2(-48, -112)

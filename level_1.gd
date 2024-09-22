@@ -7,6 +7,8 @@ var build_valid = false
 var build_location
 var build_type
 
+@onready var levelmap_script : TileMapLayer = $Level_map
+@onready var towers_script : Node2D = $Towers
 
 func _ready() -> void:
 	BackgroundMusic.music = "res://Music/LevelMusic.wav"
@@ -19,7 +21,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func initiate_build_mode(tower_type : String):
 	print(tower_type)
-	pass
+	build_type = tower_type
+	build_mode = true
+	var tile_pos = levelmap_script.get_selected_cell()
+	print(tile_pos)
+	towers_script.add_tower(tower_type, tile_pos)
 	
 func update_tower_preview():
 	pass

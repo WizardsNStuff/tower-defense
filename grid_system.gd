@@ -1,6 +1,10 @@
 extends TileMapLayer
 
 var shop_instance : Node = null
+var selected_tile : Vector2
+
+func get_selected_cell() -> Vector2:
+	return selected_tile
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -10,6 +14,8 @@ func _input(event):
 
 		# get a vector for the tile that was clicked
 		var clicked_tile = self.local_to_map(local_mouse_pos)
+		
+		selected_tile = clicked_tile
 
 		highlight_tile(clicked_tile)
 
@@ -19,6 +25,8 @@ func _input(event):
 			shop_instance = null
 		else:
 			shop_instance = preload("res://menus-and-interfaces/tower_shop/tower_shop.tscn").instantiate()
+
+			
 
 			# add shop_hud as child of root
 			get_tree().current_scene.add_child(shop_instance)
