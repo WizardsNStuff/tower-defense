@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dsorrsrb5o7q8"]
+[gd_scene load_steps=10 format=4 uid="uid://da4ddayi8j8ps"]
 
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
 [ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
+[ext_resource type="Script" path="res://level_1.gd" id="4_rlchs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
 texture = ExtResource("1_udatx")
@@ -132,6 +133,7 @@ size = Vector2(32, 32)
 
 [node name="Level_1" type="Node2D"]
 z_index = -1
+script = ExtResource("4_rlchs")
 
 [node name="Level_map" type="TileMapLayer" parent="."]
 z_index = -1
