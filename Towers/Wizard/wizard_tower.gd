@@ -16,13 +16,15 @@ func _on_tower_radius_body_entered(body: Node2D) -> void:
 		update_enemy_list()
 
 func _on_tower_radius_body_exited(body: Node2D) -> void:
+	if body is Enemy:
+		update_enemy_list()
 	if towerHasTargetedEnemy and body == targetedEnemy:	# if body leaving radius is targeted enemy
 		targetedEnemy = null	# no more targeted enemy
 		towerHasTargetedEnemy = false
 
 func update_enemy_list():
 	bodiesInRadius = towerRadiusNode.get_overlapping_bodies()	# get every body in radius
-
+	enemyArray.clear()
 	for body in bodiesInRadius:	# loop thorugh all bodies in radius
 		if body is Enemy:	# if the body is an enemy
 			enemyArray.append(body)

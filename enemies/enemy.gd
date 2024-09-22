@@ -13,7 +13,8 @@ func take_damage(damageAmount : int) -> void:
 	# create a visual damage number
 	var damageTaken : Label = damageNumberScene.instantiate()
 	damageTaken.text = str(damageAmount)
-	self.get_parent().get_parent().add_child(damageTaken)
+	damageTaken.position = self.position
+	self.get_parent().get_parent().get_parent().add_child(damageTaken)
 	print(damageTaken.text)
 	if current_health <= 0:
 		queue_free()
