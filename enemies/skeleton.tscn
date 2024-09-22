@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnq31lu24j00k"]
+
+[ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_elkea"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpf7k"]
+radius = 7.0
+height = 16.0
+
+[node name="Goblin" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_elkea")
+offset = Vector2(2, -5)
+hframes = 12
+vframes = 13
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lpf7k")
