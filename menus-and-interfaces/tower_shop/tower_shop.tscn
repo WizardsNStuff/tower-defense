@@ -205,6 +205,7 @@ offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
 [node name="archer" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0
@@ -257,6 +258,7 @@ offset_bottom = 154.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
 [node name="knight" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Knight"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0
@@ -309,6 +311,7 @@ offset_bottom = 166.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
 
 [node name="wizard" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Wizard"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 38.0
 offset_right = 140.0
