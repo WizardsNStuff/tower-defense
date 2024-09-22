@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dopwac020bxkc"]
+
+[ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="1_sy5x5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7w8vj"]
+font = ExtResource("1_sy5x5")
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="DamageNumber" type="Label"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "1"
+label_settings = SubResource("LabelSettings_7w8vj")

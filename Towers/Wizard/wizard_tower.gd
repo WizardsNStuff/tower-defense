@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-var enemyName = "Badguy"
 var bodiesInRadius = []	# array of bodies within the radius of tower
 var enemyArray = []	# array for the enemy bodies
 var targetedEnemy = null	# current target we are shooting at
@@ -13,19 +12,21 @@ var towerHasTargetedEnemy = false	# if we have a current targeted enemy
 @onready var cooldownTimer : Timer = $CooldownTimer # Timer node for the shooting cooldown
 
 func _on_tower_radius_body_entered(body: Node2D) -> void:
-	if enemyName in body.name:		# if body that entered radius is an enemy
+	if body is Enemy:		# if body that entered radius is an enemy
 		update_enemy_list()
 
 func _on_tower_radius_body_exited(body: Node2D) -> void:
+	if body is Enemy:
+		update_enemy_list()
 	if towerHasTargetedEnemy and body == targetedEnemy:	# if body leaving radius is targeted enemy
 		targetedEnemy = null	# no more targeted enemy
 		towerHasTargetedEnemy = false
 
 func update_enemy_list():
 	bodiesInRadius = towerRadiusNode.get_overlapping_bodies()	# get every body in radius
-
+	enemyArray.clear()
 	for body in bodiesInRadius:	# loop thorugh all bodies in radius
-		if enemyName in body.name:	# if the body is an enemy
+		if body is Enemy:	# if the body is an enemy
 			enemyArray.append(body)
 
 	for enemy in enemyArray:	# loop through all enemy targets in radius
