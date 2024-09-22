@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://dsorrsrb5o7q8"]
+[gd_scene load_steps=16 format=4 uid="uid://dsorrsrb5o7q8"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_kquss"]
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
-[ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
 [ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
 [ext_resource type="Script" path="res://grid_system.gd" id="2_lehrn"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="7_b5s6h"]
+[ext_resource type="PackedScene" path="res://enemies/dragon.tscn" id="8_mpe5n"]
+[ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="9_yw7ww"]
+[ext_resource type="PackedScene" path="res://enemies/orc.tscn" id="10_cfvtt"]
+[ext_resource type="PackedScene" path="res://enemies/skeleton.tscn" id="11_l3jb4"]
+[ext_resource type="PackedScene" path="res://enemies/slime.tscn" id="12_j6t1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
 texture = ExtResource("1_udatx")
@@ -150,15 +155,6 @@ tile_set = SubResource("TileSet_w7e0w")
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_e6ewd")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-144, -312)
-rotates = false
-loop = false
-
-[node name="Badguy" parent="Path2D/PathFollow2D" instance=ExtResource("2_3enhx")]
-z_index = 1
-position = Vector2(5.24521e-06, -1.96695e-06)
-
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="WizardTower" parent="Towers" instance=ExtResource("2_df20e")]
@@ -180,4 +176,13 @@ offset_right = -354.0
 offset_bottom = -269.0
 value = 100.0
 
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("7_b5s6h")
+enemy_scenes = Array[PackedScene]([ExtResource("8_mpe5n"), ExtResource("9_yw7ww"), ExtResource("10_cfvtt"), ExtResource("11_l3jb4"), ExtResource("12_j6t1s")])
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
