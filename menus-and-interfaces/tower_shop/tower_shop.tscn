@@ -287,3 +287,55 @@ position = Vector2(239, 85)
 scale = Vector2(5.20312, 5.20312)
 sprite_frames = SubResource("SpriteFrames_ic6lq")
 autoplay = "default"
+
+[node name="Archer" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "                                    Archer
+
+"
+label_settings = SubResource("LabelSettings_bd3wd")
+
+[node name="ArcherBtn" type="Button" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="TitleBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 7.0
+offset_right = 340.0
+offset_bottom = 39.0
+
+[node name="ContentBackground" type="Panel" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 38.0
+offset_right = 341.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyo70")
+
+[node name="Archer" type="Sprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+position = Vector2(91, 96)
+scale = Vector2(3.33064, 3.33064)
+texture = ExtResource("1_u1vya")
+region_enabled = true
+region_rect = Rect2(65.7776, 0.88884, 30.0247, 30.8148)
+
+[node name="ArcherCost" type="Label" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 112.0
+offset_right = 283.0
+offset_bottom = 140.0
+text = "175 Gold"
+label_settings = SubResource("LabelSettings_5jh3i")
+
+[node name="Coin" type="AnimatedSprite2D" parent="ScrollContainer/ColorRect/VBoxContainer/Archer"]
+position = Vector2(239, 85)
+scale = Vector2(5.20312, 5.20312)
+sprite_frames = SubResource("SpriteFrames_ic6lq")
+autoplay = "default"
