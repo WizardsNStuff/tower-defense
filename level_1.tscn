@@ -196,5 +196,10 @@ enemy_scenes = Array[PackedScene]([ExtResource("8_mpe5n"), ExtResource("9_yw7ww"
 wait_time = 2.0
 one_shot = true
 
+[node name="WaveTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/WaveTimer" to="EnemySpawner" method="_on_wave_timer_timeout"]
