@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://da4ddayi8j8ps"]
+[gd_scene load_steps=16 format=4 uid="uid://dsorrsrb5o7q8"]
 
+[ext_resource type="Script" path="res://level_1.gd" id="1_srvf5"]
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
-[ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="2_6v60r"]
 [ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
+[ext_resource type="PackedScene" uid="uid://bsv0wq5dspkbc" path="res://enemies/dragon.tscn" id="3_iewrd"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
-[ext_resource type="Script" path="res://level_1.gd" id="4_rlchs"]
+[ext_resource type="PackedScene" uid="uid://bueopn6oyle23" path="res://enemies/goblin.tscn" id="4_afk6e"]
+[ext_resource type="PackedScene" uid="uid://c764xb53b7vad" path="res://enemies/orc.tscn" id="5_aa33c"]
+[ext_resource type="PackedScene" uid="uid://dnq31lu24j00k" path="res://enemies/skeleton.tscn" id="6_uq348"]
+[ext_resource type="PackedScene" uid="uid://cjhqqyjnct3v" path="res://enemies/slime.tscn" id="7_yincc"]
+[ext_resource type="PackedScene" uid="uid://b8k5wa443tme3" path="res://path_follow_2d.tscn" id="8_prjrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
 texture = ExtResource("1_udatx")
@@ -133,7 +139,7 @@ size = Vector2(32, 32)
 
 [node name="Level_1" type="Node2D"]
 z_index = -1
-script = ExtResource("4_rlchs")
+script = ExtResource("1_srvf5")
 
 [node name="Level_map" type="TileMapLayer" parent="."]
 z_index = -1
@@ -145,17 +151,18 @@ z_index = -1
 tile_map_data = PackedByteArray("AAABAPb/AAAAABIAAAAGAPb/AAAGABEAAAAKAPv/AAAAABIAAAANAPf/AAAGABEAAAD1//j/AAAGABEAAAD2////AAAAABIAAAD7//b/AAADABAAAAD7/wUAAAABABIAAAAMAAIAAAAAABIAAAALAAYAAAAAABIAAAAFAAkAAAADABAAAAA=")
 tile_set = SubResource("TileSet_w7e0w")
 
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("2_6v60r")
+enemy_scenes = Array[PackedScene]([ExtResource("3_iewrd"), ExtResource("4_afk6e"), ExtResource("5_aa33c"), ExtResource("6_uq348"), ExtResource("7_yincc")])
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_e6ewd")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-144, -312)
-rotates = false
-loop = false
-
-[node name="Badguy" parent="Path2D/PathFollow2D" instance=ExtResource("2_3enhx")]
-z_index = 1
-position = Vector2(5.24521e-06, -1.96695e-06)
+[node name="PathFollow2D" parent="Path2D" instance=ExtResource("8_prjrf")]
 
 [node name="Towers" type="Node2D" parent="."]
 
@@ -178,4 +185,5 @@ offset_right = -354.0
 offset_bottom = -269.0
 value = 100.0
 
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
