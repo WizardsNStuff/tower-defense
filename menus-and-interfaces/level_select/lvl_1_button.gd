@@ -1,5 +1,5 @@
 extends Button
-
+@onready var lvl1BtnBG = $"../../../../../Level1BtnBG"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,3 +14,11 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	print("lvl1Button")
 	get_tree().change_scene_to_file("res://level_1.tscn")
+
+
+func _on_mouse_entered() -> void:
+	lvl1BtnBG.visible = true
+
+
+func _on_mouse_exited() -> void:
+	lvl1BtnBG.visible = false
