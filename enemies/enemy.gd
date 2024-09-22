@@ -11,6 +11,8 @@ func take_damage(damageAmount : int) -> void:
 	current_health -= damageAmount
 	DamageNumbers.displayNumber(damageAmount, self.global_position)
 	if current_health <= 0:
+		var label_script = get_parent().get_parent().get_parent()
+		label_script.add_gold(gold)
 		queue_free()
 
 func _physics_process(delta: float) -> void:
