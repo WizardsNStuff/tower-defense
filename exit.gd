@@ -8,7 +8,8 @@ func _on_body_entered(body: Node2D) -> void:
 		totalHealth -= body.damage
 		Player_health_bar.value -= body.damage
 		if totalHealth <= 0:
-			get_tree().paused = true
+			get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
+			GameOver.showGameOver = true
 			print('dead')
 		print(totalHealth)
 
