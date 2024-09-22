@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="PackedScene" uid="uid://dov73q21ca5sc" path="res://Towers/Badguy.tscn" id="2_3enhx"]
-[ext_resource type="PackedScene" path="res://Towers/wizard_tower.tscn" id="2_df20e"]
+[ext_resource type="PackedScene" uid="uid://b04xi8wnssdys" path="res://Towers/Wizard/wizard_tower.tscn" id="2_df20e"]
 [ext_resource type="Script" path="res://exit.gd" id="4_7wc6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eftm6"]
@@ -158,7 +158,7 @@ position = Vector2(5.24521e-06, -1.96695e-06)
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="WizardTower" parent="Towers" instance=ExtResource("2_df20e")]
-position = Vector2(-144, -112)
+position = Vector2(-48, -112)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

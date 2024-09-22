@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_45ujw"]
 radius = 13.0
 
-[node name="Weapon" type="Area2D"]
+[node name="Weapon2" type="Area2D"]
 z_index = 1
 script = ExtResource("1_eay04")
 weapon_speed = 100

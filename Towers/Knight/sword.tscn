@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_45ujw"]
 radius = 11.0
 
-[node name="Weapon" type="Area2D"]
+[node name="Weapon2" type="Area2D"]
 z_index = 1
 script = ExtResource("1_110sm")
 weapon_damage = 10
