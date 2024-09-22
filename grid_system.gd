@@ -15,13 +15,12 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		
 		# mouse position relative to the cells (size of the tilemap)
-		#var local_mouse_pos = get_local_mouse_position()
+		var local_mouse_pos = get_local_mouse_position()
 		
 		# get a vector for the tile that was clicked
-		#var clicked_tile = self.local_to_map(local_mouse_pos)
+		var clicked_tile = self.local_to_map(local_mouse_pos)
 		
-		# add 1 to x so we can spawn the menu to the right of the clicked tile
-		#clicked_tile.x += 1
+		highlight_tile(clicked_tile)
 		
 		var shop_instance = preload("res://menus-and-interfaces/tower_shop/tower_shop.tscn").instantiate()
 		
@@ -43,3 +42,6 @@ func _input(event):
 		
 		# mvoe shop to correct position
 		shop_instance.position = Vector2(hud_position_x, hud_position_y)
+
+func highlight_tile(tile_pos) -> void:
+	pass
