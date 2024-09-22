@@ -158,7 +158,7 @@ position = Vector2(5.24521e-06, -1.96695e-06)
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="WizardTower" parent="Towers" instance=ExtResource("2_df20e")]
-position = Vector2(-48, -112)
+position = Vector2(142, -111)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
