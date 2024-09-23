@@ -179,7 +179,7 @@ z_index = -1
 tile_map_data = PackedByteArray("AAABAPb/AAAAABIAAAAGAPb/AAAGABEAAAAKAPv/AAAAABIAAAANAPf/AAAGABEAAAD1//j/AAAGABEAAAD2////AAAAABIAAAD7//b/AAADABAAAAD7/wUAAAABABIAAAAMAAIAAAAAABIAAAALAAYAAAAAABIAAAAFAAkAAAADABAAAAD3/wgAAAABABQAAAD3/wQAAAABABQAAAAIAAUAAAABABQAAAAOAAEAAAABABQAAAANAP3/AAABABQAAAAEAPj/AAABABQAAAD1//r/AAABABQAAAD0//3/AAABABQAAADz/wAAAAABABQAAADx/wIAAAABABQAAADw//7/AAABABQAAAARAAYAAAABABQAAADx/wYAAAABABYAAADt/wMAAAABABYAAADw//z/AAABABYAAAALAPr/AAABABYAAAAQAPv/AAABABYAAAAQAPz/AAABABYAAAANAAYAAAABABYAAAD0/wgAAAAHABMAAADv/wEAAAAHABMAAAD3//z/AAAHABMAAAACAPn/AAAHABMAAAARAP//AAAHABMAAADu/wcAAAAHABMAAADv/wgAAAABABIAAADu//3/AAABABIAAAAQAAIAAAABABIAAAANAAkAAAAEABEAAAD7/wkAAAAEABEAAADu/wMAAAAEABEAAADx//n/AAAEABEAAAD3//b/AAAEABEAAAAOAPj/AAAEABEAAADx/wgAAAAGAAsAAADu/wUAAAAGAAsAAADt/wAAAAAGAAsAAAAIAP//AAAGAAsAAAAQAAgAAAAGAAsAAAD1/wkAAAAGAAoAAADy/wMAAAAGAAoAAADy//3/AAAGAAoAAAAOAPz/AAAGAAoAAAARAPv/AAAGAAoAAAAAAAgAAAAGAAoAAAD4/wgAAAAFAAcAAADy/wYAAAAFAAcAAADw/wUAAAAFAAcAAADx/wUAAAAFAAcAAADw/wAAAAAFAAcAAADu////AAAFAAcAAADv//7/AAAFAAcAAADz//r/AAAFAAcAAADx//r/AAAFAAcAAAAPAAUAAAAFAAcAAAAOAAcAAAAFAAcAAAALAAgAAAAFAAcAAAACAAkAAAAFAAcAAAD+/wkAAAAFAAcAAAALAPz/AAAFAAcAAAAOAPr/AAAFAAcAAAAQAPj/AAAFAAcAAAARAPf/AAAFAAcAAAAAAPf/AAAFAAcAAAD9//f/AAAFAAcAAAD2/wIAAAAFAAcAAAD1/wIAAAAFAAcAAAACAAUAAAAFAAcAAAAPAP//AAAGAAcAAAAQAP7/AAAGAAcAAAARAAEAAAAGAAcAAAD1/wYAAAAGAAcAAAD0/wUAAAAGAAcAAAD8/wMAAAAGAAkAAADz//7/AAAGAAkAAAARAAQAAAAGAAkAAAAMAP3/AAAGAAkAAAAEAPb/AAAGAAkAAAD5//r/AAAGAAkAAAAHAPj/AAAGAAkAAAAHAPv/AAAGAAkAAAA=")
 tile_set = SubResource("TileSet_w7e0w")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_e6ewd")
 
 [node name="Towers" type="Node2D" parent="."]
@@ -201,18 +201,25 @@ offset_right = -354.0
 offset_bottom = -269.0
 value = 100.0
 
-[node name="EnemySpawner" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("path2D_node")]
 script = ExtResource("7_b5s6h")
 enemy_scenes = Array[PackedScene]([ExtResource("8_mpe5n"), ExtResource("9_yw7ww"), ExtResource("10_cfvtt"), ExtResource("11_l3jb4"), ExtResource("12_j6t1s")])
+path2D_node = NodePath("../EnemyPath")
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
-wait_time = 2.0
 one_shot = true
 
-[node name="WaveTimer" type="Timer" parent="EnemySpawner"]
-wait_time = 5.0
-one_shot = true
+[node name="NextWave" type="Button" parent="."]
+offset_left = -606.0
+offset_top = 214.0
+offset_right = -371.0
+offset_bottom = 318.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0.776471, 0.627451, 0.141176, 1)
+theme_override_colors/font_hover_color = Color(0.776471, 0.627451, 0.141176, 1)
+theme_override_fonts/font = ExtResource("2_w5en7")
+theme_override_font_sizes/font_size = 64
+text = "Next Wave"
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
-[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="EnemySpawner/WaveTimer" to="EnemySpawner" method="_on_wave_timer_timeout"]
+[connection signal="pressed" from="NextWave" to="EnemySpawner" method="_on_next_wave_pressed"]

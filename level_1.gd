@@ -1,7 +1,7 @@
 extends Node2D
 
 var build_type
-var player_gold : int = 300
+var player_gold : int = 50
 var tower_prices : Dictionary = {
 	"wizard" : 225, 
 	"knight" : 125, 
