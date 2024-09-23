@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="tower-defense"
+config/name="Crown-and-Coin"
 run/main_scene="res://menus-and-interfaces/main_menu/Main_Menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://CnC-Logo.png"
 
 [autoload]
 
