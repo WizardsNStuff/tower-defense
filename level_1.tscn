@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="7_b5s6h"]
 [ext_resource type="PackedScene" uid="uid://bsv0wq5dspkbc" path="res://enemies/dragon.tscn" id="8_mpe5n"]
 [ext_resource type="PackedScene" uid="uid://bueopn6oyle23" path="res://enemies/goblin.tscn" id="9_yw7ww"]
-[ext_resource type="PackedScene" uid="uid://c764xb53b7vad" path="res://enemies/orc.tscn" id="10_cfvtt"]
+[ext_resource type="PackedScene" uid="uid://c764xb53b7vad" path="res://enemies/lich.tscn" id="10_cfvtt"]
 [ext_resource type="PackedScene" uid="uid://dnq31lu24j00k" path="res://enemies/skeleton.tscn" id="11_l3jb4"]
 [ext_resource type="PackedScene" uid="uid://cjhqqyjnct3v" path="res://enemies/slime.tscn" id="12_j6t1s"]
 
