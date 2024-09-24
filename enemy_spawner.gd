@@ -24,12 +24,13 @@ var waves := [
 ]
 
 var wave_number = 0
-var is_wave_finished := false
+var is_wave_finished := true
 var stop_mob_spawns = false 
 
 @onready var wave_label : Label = $"../WaveTime"
 
 func spawn_wave() -> void:
+	is_wave_finished = false
 	# Spawn every enemy in current wave
 	for enemy in waves[wave_number]:
 		spawn_timer.start()
@@ -40,9 +41,12 @@ func spawn_wave() -> void:
 		path2D_node.add_child(pfScene)
 		# Wait for spawner to finish before next loop
 		await spawn_timer.timeout
+	# wave is finished so go to next wave
+	is_wave_finished = true
+	wave_number += 1
 
 func _on_next_wave_pressed() -> void:
-	if is_wave_finished == false:
+	if is_wave_finished == true:
 		spawn_wave()
 
 func _physics_process(_delta: float) -> void:
