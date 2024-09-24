@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var enemy_scenes : Array[PackedScene]
-@export var spawn_interval = 1.0
 @export var path2D_node : Path2D
 @onready var spawn_timer : Timer = $SpawnTimer
 @export var path_follow_scene = preload("res://path_follow_2d.tscn")
@@ -42,7 +40,8 @@ func spawn_wave() -> void:
 		spawn_timer.start()
 		# Spawn enemy with pathfollow node and add to path2d
 		var enemy_scene = enemy.instantiate()
-		var pfScene = path_follow_scene.instantiate()
+		var pfScene = PathFollow2D.new()
+		pfScene.rotates = false
 		pfScene.add_child(enemy_scene)
 		path2D_node.add_child(pfScene)
 		# Wait for spawner to finish before next loop
@@ -61,6 +60,6 @@ func _physics_process(_delta: float) -> void:
 	wave_label.text = "WAVE: " + str(wave_number + 1)
 	
 	# Victory check
-	if (wave_number > waves.size()) & (path2D_node.get_children().is_empty()):
+	if (wave_number > waves.size()) && (path2D_node.get_children().is_empty()):
 		GameOver.showVictory = true
 		get_tree().change_scene_to_file("res://menus-and-interfaces/main_menu/Main_Menu.tscn")
