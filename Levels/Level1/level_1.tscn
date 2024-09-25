@@ -1,17 +1,16 @@
-[gd_scene load_steps=26 format=4 uid="uid://j5h15vyfs70h"]
+[gd_scene load_steps=25 format=4 uid="uid://j5h15vyfs70h"]
 
 [ext_resource type="Script" path="res://Levels/Level1/level_1.gd" id="1_miyva"]
 [ext_resource type="Texture2D" uid="uid://bnkf66xv2cxwh" path="res://Assets/tiles.png" id="1_udatx"]
 [ext_resource type="FontFile" uid="uid://ldri87twec1q" path="res://Assets/Enchanted Land.otf" id="2_w5en7"]
 [ext_resource type="Script" path="res://towers.gd" id="4_4eu5u"]
 [ext_resource type="Script" path="res://Levels/Level1/grid_system.gd" id="4_5uoc8"]
-[ext_resource type="Script" path="res://Levels/Level1/exit.gd" id="6_q75c1"]
 [ext_resource type="Script" path="res://Levels/Level1/enemy_spawner.gd" id="7_pm7op"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bgc6j"]
 font = ExtResource("2_w5en7")
 font_size = 32
-font_color = Color(0.776471, 0.627451, 0.141176, 1)
+font_color = Color(0.776471, 0.247059, 0.141176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_up66c"]
 font = ExtResource("2_w5en7")
@@ -149,7 +148,7 @@ point_count = 12
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tegvk"]
-size = Vector2(31, 159)
+size = Vector2(32, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rlus"]
 size = Vector2(32, 288)
@@ -190,7 +189,7 @@ offset_left = -608.0
 offset_top = -323.0
 offset_right = -418.0
 offset_bottom = -285.0
-text = "HEALTH"
+text = "HEALTH:"
 label_settings = SubResource("LabelSettings_bgc6j")
 
 [node name="Gold" type="Label" parent="."]
@@ -208,6 +207,18 @@ offset_right = -458.0
 offset_bottom = -208.0
 text = "WAVE: "
 label_settings = SubResource("LabelSettings_pvu41")
+
+[node name="NextWave" type="Button" parent="."]
+offset_left = -606.0
+offset_top = 214.0
+offset_right = -371.0
+offset_bottom = 318.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0.776471, 0.627451, 0.141176, 1)
+theme_override_colors/font_hover_color = Color(0.776471, 0.627451, 0.141176, 1)
+theme_override_fonts/font = ExtResource("2_w5en7")
+theme_override_font_sizes/font_size = 64
+text = "Next Wave"
 
 [node name="Level_map" type="TileMapLayer" parent="."]
 z_index = -1
@@ -231,7 +242,6 @@ script = ExtResource("4_4eu5u")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Exit" type="Area2D" parent="."]
-script = ExtResource("6_q75c1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(176, 304)
@@ -244,22 +254,10 @@ path2D_node = NodePath("../EnemyPath")
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
 one_shot = true
 
-[node name="NextWave" type="Button" parent="."]
-offset_left = -606.0
-offset_top = 214.0
-offset_right = -371.0
-offset_bottom = 318.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_hover_pressed_color = Color(0.776471, 0.627451, 0.141176, 1)
-theme_override_colors/font_hover_color = Color(0.776471, 0.627451, 0.141176, 1)
-theme_override_fonts/font = ExtResource("2_w5en7")
-theme_override_font_sizes/font_size = 64
-text = "Next Wave"
-
 [node name="PathArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathArea"]
-position = Vector2(-143.5, -207.5)
+position = Vector2(-144, -224)
 shape = SubResource("RectangleShape2D_tegvk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PathArea"]
@@ -302,5 +300,5 @@ shape = SubResource("RectangleShape2D_4ph86")
 position = Vector2(176, -112)
 shape = SubResource("RectangleShape2D_xw783")
 
-[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="pressed" from="NextWave" to="EnemySpawner" method="_on_next_wave_pressed"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
