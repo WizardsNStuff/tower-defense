@@ -64,8 +64,16 @@ func _physics_process(_delta: float) -> void:
 	shoot()
 
 func update_enemy_priority() -> void:
-	for enemy in towerRadiusNode.get_overlapping_bodies():
-		pass
+	var highestProgress = -1.0
+	var enemies = towerRadiusNode.get_overlapping_bodies()
+	if enemies.is_empty():
+		targetedEnemy = null
+	else:
+		for enemy in enemies:
+			var enemyProgress = (enemy.get_parent() as PathFollow2D).get_progress()
+			if enemyProgress > highestProgress:
+				highestProgress = enemyProgress
+				targetedEnemy = enemy
 
 func shoot() -> void:
 	pass
