@@ -8,6 +8,7 @@ func _ready() -> void:
 	weapon_pierce = 1		# How many enemies can the projectile pass through before being freed
 	damage_type = "Magic"	# Type of damage dealt by the projectile (Magic)
 	is_ranged = true		# Is the weapon ranged?
-	weapon_life = 3.0		# How long a projectile lives
+	weapon_cooldown = 1.0
+	weapon_life = 0.75		# How long a projectile lives
 	Weapon = load("res://Towers/Wizard/potion.tscn")
 	#########################
