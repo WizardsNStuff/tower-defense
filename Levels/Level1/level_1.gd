@@ -4,10 +4,10 @@ var build_type
 var player_health : int = 100
 var player_gold : int = 50
 var tower_prices : Dictionary = {
-	"wizard" : 225, 
-	"knight" : 125, 
+	"wizard" : 50, 
+	"knight" : 50, 
 	"archer" : 50, 
-	"warrior" : 25
+	"warrior" : 50
 }
 
 @onready var levelmap_script : TileMapLayer = $Level_map

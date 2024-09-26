@@ -1,7 +1,8 @@
-extends "res://enemies/enemy.gd"
+extends Enemy
+class_name Lich
 
 func _ready() -> void:
-	move_speed = 100 # speed at which path is progressed
+	move_speed = 100
 	max_health = 50
 	damage = 20
 	gold = 50
