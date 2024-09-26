@@ -33,7 +33,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(weapon_damage, damage_type, is_ranged)	# damage the enemy
 		# despawn projectile if no more pierce
 		if weapon_pierce <= 1:
-			queue_free()
+			despawn()
 		# Otherwise decrease pierce
 		else:
 			weapon_pierce -= 1
