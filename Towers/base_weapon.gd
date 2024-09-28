@@ -5,7 +5,7 @@ class_name WeaponBase
 var weapon_damage: int			# How much damage the projectile deals
 var weapon_speed: int			# How fast the projectile travels
 var weapon_pierce: int			# How many enemies can the projectile pass through before being freed
-var damage_type: String			# Type of damage dealt by the projectile (Magic)
+var is_magic: bool			# Is the weapon Magical or Physical?
 var is_ranged: bool				# Is the weapon ranged?
 var weapon_life_span: float
 var weapon_life: Timer
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy:		# if weapon collision is with an enemy
-		body.take_damage(weapon_damage, damage_type, is_ranged)	# damage the enemy
+		body.take_damage(weapon_damage, is_magic, is_ranged)	# damage the enemy
 		# despawn projectile if no more pierce
 		if weapon_pierce <= 1:
 			despawn()

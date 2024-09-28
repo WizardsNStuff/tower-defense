@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5kf01up75nrn"]
 
-[ext_resource type="Script" path="res://Towers/Warrior/axe.gd" id="1_eay04"]
+[ext_resource type="Script" path="res://Towers/base_weapon.gd" id="1_xwjiq"]
 [ext_resource type="Texture2D" uid="uid://bi17ywfl1qv2j" path="res://Assets/items.png" id="2_l8ddg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45ujw"]
@@ -8,9 +8,7 @@ radius = 13.0
 
 [node name="Weapon2" type="Area2D"]
 z_index = 1
-script = ExtResource("1_eay04")
-weapon_speed = 100
-weapon_damage = 5
+script = ExtResource("1_xwjiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

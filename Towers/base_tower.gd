@@ -9,7 +9,7 @@ enum damage_types {
 var weapon_damage: int			# How much damage the projectile deals
 var weapon_speed: int			# How fast the projectile travels
 var weapon_pierce: int			# How many enemies can the projectile pass through before being freed
-var damage_type: String			# Type of damage dealt by the projectile (Magic)
+var is_magic: bool				# Is the weapon Magical or Physical?
 var is_ranged: bool				# Is the weapon ranged?
 var weapon_cooldown: float		# How long before the weapon is fired again
 var weapon_life: float			# How long a projectile lives
@@ -62,7 +62,7 @@ func shoot() -> void:
 		weapon_instance.weapon_damage = weapon_damage
 		weapon_instance.weapon_speed = weapon_speed
 		weapon_instance.weapon_pierce = weapon_pierce
-		weapon_instance.damage_type = damage_type
+		weapon_instance.is_magic = is_magic
 		weapon_instance.is_ranged = is_ranged
 		weapon_instance.weapon_life_span = weapon_life
 		
