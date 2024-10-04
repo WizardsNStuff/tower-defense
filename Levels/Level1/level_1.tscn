@@ -242,6 +242,7 @@ script = ExtResource("4_4eu5u")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Exit" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(176, 304)

@@ -7,6 +7,9 @@ var damage : int
 var gold : int
 var current_health : int
 
+func _ready() -> void:
+	collision_layer = 2
+
 func take_damage(damageAmount : int, is_magic: bool, is_ranged: bool) -> void:
 	current_health -= damageAmount
 	DamageNumbers.displayNumber(damageAmount, self.global_position)

@@ -9,16 +9,17 @@ var is_magic: bool			# Is the weapon Magical or Physical?
 var is_ranged: bool				# Is the weapon ranged?
 var weapon_life_span: float
 var weapon_life: Timer
-
 # Direction of weapon projectile
 var weapon_direction : Vector2
 
+func _ready() -> void:
+	collision_mask = 2
+	weapon_life = $Timer
+	weapon_life.one_shot = true
+	weapon_life.start(weapon_life_span)
+	weapon_life.timeout.connect(despawn)
+
 func _physics_process(delta: float) -> void:
-	if weapon_life == null:
-		self.weapon_life = Timer.new()
-		weapon_life.timeout.connect(self.despawn)
-		self.add_child(weapon_life)
-		weapon_life.start(weapon_life_span)
 	self.position += weapon_direction * weapon_speed * delta	# move the projectile
 
 func _on_body_entered(body: Node2D) -> void:

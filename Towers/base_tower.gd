@@ -1,10 +1,6 @@
 extends StaticBody2D
 class_name TowerBase
 
-enum damage_types {
-	MAGIC
-}
-
 ######### Tower Stats ###########
 var weapon_damage: int			# How much damage the projectile deals
 var weapon_speed: int			# How fast the projectile travels
@@ -16,23 +12,23 @@ var weapon_life: float			# How long a projectile lives
 #################################
 
 var targetedEnemy: Enemy = null	# current target we are shooting at
-var Weapon: Resource			# Weapon to are shooting
+var Weapon: Resource			# Weapon we are shooting
 var weapon_timer : Timer
 var can_shoot := true
-
-func reset_weapon_timer() -> void:
-	can_shoot = true
 
 # towerRadius casted as Area2D to be able to use get_overlapping_bodies()
 @onready var towerRadiusNode = get_node("TowerRadius") as Area2D
 
+func _ready() -> void:
+	collision_mask = 2
+	weapon_timer = $CooldownTimer
+	weapon_timer.one_shot = true
+	weapon_timer.timeout.connect(reset_weapon_timer)
+
+func reset_weapon_timer() -> void:
+	can_shoot = true
+
 func _physics_process(_delta: float) -> void:
-	if weapon_timer == null:
-		weapon_timer = Timer.new()
-		weapon_timer.one_shot = true
-		weapon_timer.timeout.connect(self.reset_weapon_timer)
-		self.add_child(weapon_timer)
-	
 	update_enemy_priority()
 	shoot()
 
