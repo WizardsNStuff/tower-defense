@@ -3,6 +3,15 @@ extends Node2D
 @export var path2D_node : Path2D
 @onready var spawn_timer : Timer = $SpawnTimer
 @export var path_follow_scene = preload("res://path_follow_2d.tscn")
+@onready var wave_label : Label = $"../WaveTime"
+@export var slime_target : Node2D 
+@export var slime_view_scene : PackedScene 
+
+
+var wave_number = 0
+var is_wave_finished := true
+
+
 
 # Basic enemy can be killed by every tower
 var slime = load("res://enemies/slime.tscn")
@@ -29,10 +38,6 @@ var waves := [
 		[slime,goblin,skeleton,lich,dragon]
 ]
 
-var wave_number = 0
-var is_wave_finished := true
-
-@onready var wave_label : Label = $"../WaveTime"
 
 func spawn_wave() -> void:
 	# Spawn every enemy in current wave
@@ -40,6 +45,13 @@ func spawn_wave() -> void:
 		spawn_timer.start()
 		# Spawn enemy with pathfollow node and add to path2d
 		var enemy_scene = enemy.instantiate()
+		
+		if (enemy_scene is Slime):
+			var slime_view := slime_view_scene.instantiate() as SlimeView
+			slime_view.slime = enemy_scene
+			slime_target.add_child(slime_view)
+			pass
+		
 		var pfScene = PathFollow2D.new()
 		pfScene.rotates = false
 		pfScene.add_child(enemy_scene)

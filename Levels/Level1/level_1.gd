@@ -15,6 +15,8 @@ var tower_prices : Dictionary = {
 @onready var gold_label : Label = $Gold
 @onready var health_label : Label = $Health
 
+
+
 func _ready() -> void:
 	BackgroundMusic.music = "res://Music/LevelMusic.wav"
 	gold_label.text = "GOLD: " + str(player_gold)

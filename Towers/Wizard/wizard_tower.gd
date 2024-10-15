@@ -1,6 +1,7 @@
 extends TowerBase
 class_name Wizard
 
+
 func _ready() -> void:
 	######### Tower Stats ###
 	weapon_damage = 25		# How much damage the projectile deals

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbu0hoxltohim"]
+
+[ext_resource type="Script" path="res://views/slime_view.gd" id="1_3kaxe"]
+[ext_resource type="Texture2D" uid="uid://bo3s4akp7lrux" path="res://Assets/monsters.png" id="1_ohsh4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0mk8"]
+atlas = ExtResource("1_ohsh4")
+region = Rect2(28, 62, 41, 40)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = SubResource("AtlasTexture_e0mk8")
+script = ExtResource("1_3kaxe")
